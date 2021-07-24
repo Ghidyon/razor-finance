@@ -8,7 +8,6 @@ namespace RazorFinance
 {
     public static class Database
     {
-
         public static IEnumerable<Account> Accounts()
         {
             return new List<Account>()
