@@ -13,15 +13,15 @@ namespace RazorFinance
             return new List<Account>()
             {
                 new Account { Username = "ghidyon", FirstName = "Gideon", LastName = "Akunana", Email = "ghidyonakunana@outlook.com", Gender = 'M', Balance = 450,
-                            AccountNumber = 00003450883, BVN = 22215479813, Address = "Independence Layout, Enugu"},
+                            AccountNumber = 1003450883, BVN = 22215479813, Address = "Independence Layout, Enugu"},
                 new Account { Username = "kingalex", FirstName = "Alex", LastName = "Oz", Email = "kingalex@outlook.com", Gender = 'F', Balance = 1250,
-                            AccountNumber = 00003450884, BVN = 22215479814, Address = "Achara Layout, Enugu"},
+                            AccountNumber = 1003450884, BVN = 22215479814, Address = "Achara Layout, Enugu"},
                 new Account { Username = "queenlovey", FirstName = "Loveth", LastName = "Anosike", Email = "dovelovey@outlook.com", Gender = 'F', Balance = 1100,
-                            AccountNumber = 00003450885, BVN = 22215479815, Address = "GRA, Enugu"},
+                            AccountNumber = 1003450885, BVN = 22215479815, Address = "GRA, Enugu"},
                 new Account { Username = "dayoutuber", FirstName = "Kelechi", LastName = "Youtube", Email = "kcmyoutube@outlook.com", Gender = 'M', Balance = 2500,
-                            AccountNumber = 00003450886, BVN = 22215479816, Address = "Amechi, Enugu"},
+                            AccountNumber = 1003450886, BVN = 22215479816, Address = "Amechi, Enugu"},
                 new Account { Username = "surely", FirstName = "Shola", LastName = "Nejo", Email = "nejoshola@outlook.com", Gender = 'M', Balance = 1700,
-                            AccountNumber = 00003450887, BVN = 22215479817, Address = "Gariki, Enugu"}
+                            AccountNumber = 1003450887, BVN = 22215479817, Address = "Gariki, Enugu"}
             };
         }
 

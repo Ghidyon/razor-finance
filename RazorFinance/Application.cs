@@ -10,7 +10,9 @@ namespace RazorFinance
     {
         public static async Task Run()
         {
-            PromptUsername: 
+            Console.Title = "Razor Finance";
+
+        PromptUsername:
             Console.WriteLine("Enter your login details\nEnter username");
             string username = Console.ReadLine();
 
@@ -22,25 +24,25 @@ namespace RazorFinance
             var userCredentials = Authentication.GetUserCredentials(username);
             var accountData = Authentication.RetrieveAccountData(username);
 
-            PromptPassword:
+        PromptPassword:
             Console.WriteLine("Enter your password");
             string password = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(password))
             {
+                Console.WriteLine("Enter a valid input");
                 goto PromptPassword;
             }
 
-            // display data on validation
-            var isValidated = Authentication.IsValidated(username, password);
-            if (isValidated)
+            var isValidated = Authentication.IsValidated(await userCredentials, password);
+            if (await isValidated)
             {
-                foreach (var data in accountData)
+                foreach (var data in await accountData)
                 {
                     Console.WriteLine($"Welcome Back {data.FirstName} {data.LastName}");
                     Console.WriteLine("Your details are:");
                     Console.WriteLine($"Email: {data.Email}");
                     Console.WriteLine("Account No: {0}****{1}", data.AccountNumber.ToString().Substring(0, 3), data.AccountNumber.ToString()[7..]);
-                    Console.WriteLine($"Account Balance: {data.Balance}");
+                    Console.WriteLine($"Account Balance: ${data.Balance:n}");
                     Console.WriteLine("BVN: {0}*****{1}", data.BVN.ToString().Substring(0, 3), data.BVN.ToString()[8..]);
                     Console.WriteLine($"Branch: {data.Address}");
                 }
@@ -48,7 +50,7 @@ namespace RazorFinance
             else
             {
                 Console.WriteLine("Invalid Credentials! Try Again!");
-                goto PromptPassword;
+                goto PromptUsername;
             }
             
         }

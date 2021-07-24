@@ -6,8 +6,6 @@ namespace RazorFinance
     {
         static void Main(string[] args)
         {
-            Console.Title = "Razor Finance";
-
             Application.Run();
         }
     }
