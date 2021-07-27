@@ -21,8 +21,8 @@ namespace RazorFinance
                 goto PromptUsername;
             }
 
-            var userCredentials = Authentication.GetUserCredentials(username);
-            var accountData = Authentication.RetrieveAccountData(username);
+            var userCredentials = Authentication.GetUserCredentialsAsync(username);
+            var accountData = Authentication.RetrieveAccountDataAsync(username);
 
         PromptPassword:
             Console.WriteLine("Enter your password");
@@ -33,7 +33,7 @@ namespace RazorFinance
                 goto PromptPassword;
             }
 
-            var isValidated = Authentication.IsValidated(await userCredentials, password);
+            var isValidated = Authentication.IsValidatedAsync(await userCredentials, password);
             if (await isValidated)
             {
                 foreach (var data in await accountData)

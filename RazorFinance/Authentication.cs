@@ -11,21 +11,22 @@ namespace RazorFinance
         private static readonly IEnumerable<Account> _accounts = Database.Accounts();
         private static readonly IEnumerable<Credential> _credentials = Database.Credentials();
 
-        public static async Task<List<Account>> RetrieveAccountData(string username)
+        public static async Task<List<Account>> RetrieveAccountDataAsync(string username)
         {
-            var accountData = _accounts.Where(data => data.Username.Equals(username.ToLower())).ToList();
+            List<Account> accountData = await Task.Run(() => _accounts.Where(data => data.Username.Equals(username.ToLower())).ToList());
             return accountData;
         }
 
-        public static async Task<List<Credential>> GetUserCredentials(string username)
+        public static async Task<List<Credential>> GetUserCredentialsAsync(string username)
         {
-            List<Credential> userCredentials = _credentials.Where(data => data.Username.Equals(username.ToLower())).ToList();
+            List<Credential> userCredentials = await Task.Run(() => _credentials.Where(data => data.Username.Equals(username.ToLower())).ToList());
             return userCredentials;
         }
 
-        public static async Task<bool> IsValidated(List<Credential> userCredentials, string password)
+        public static async Task<bool> IsValidatedAsync(List<Credential> userCredentials, string password)
         {
-            return userCredentials?.Any(data => data.Password.Equals(password)) ?? false;
+            bool isValidated = await Task.Run(() => userCredentials?.Any(data => data.Password.Equals(password)) ?? false);
+            return isValidated;
         }
     }
 }
