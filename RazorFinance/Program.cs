@@ -7,7 +7,7 @@ namespace RazorFinance
     {
         static async Task Main(string[] args)
         {
-            await Application.Run();
+            await Task.Run(() => Application.Run());
         }
     }
 }
